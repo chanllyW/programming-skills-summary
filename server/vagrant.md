@@ -49,3 +49,6 @@ variables:
 > `/home/vagrant/`  虚拟机路径，一般不用修改  
 
 ---
+
+
+推荐文章 => https://github.com/astaxie/Go-in-Action/blob/master/ebook/zh/01.3.md
