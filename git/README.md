@@ -1,3 +1,6 @@
+### git工作流
+https://github.com/xirong/my-git/blob/master/git-workflow-tutorial.md
+
 ### 让你们clone laravel更快（by [overtrue](https://github.com/overtrue) ）
 我们通常在克隆github上的项目时做法如下：
 
