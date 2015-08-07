@@ -32,3 +32,16 @@ function SortByKey(&$arr, $offset, $length)
 	};
 	uksort($arr, $cmp);
 }
+```
+
+### switch case 弱类型比较
+```php
+$a = 1;
+switch (true) {
+    case true === $a:
+        echo 'success';
+        break;
+    default :
+        echo 'fail';
+}
+```
