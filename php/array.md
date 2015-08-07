@@ -22,3 +22,21 @@ usort($arr, 'asc_number_sort');
 
 ---
 
+
+### in_array 弱类型比较
+```php
+$k = 'hello';
+$arr = array(0,1,2,3);
+var_dump(in_array($k,$arr));        // true
+var_dump(in_array($k,$arr,true));   // false
+```
+
+###  判断数组key是否存在
+```php
+$arr = array('key' => null);
+var_dump(isset($arr['key']));
+var_dump(array_key_exists($arr, 'key'));
+    > Output for hhvm-3.3.1 - 3.8.0   [bool(false), bool(false)]
+    > Output for 5.3.0 - 7.0.0beta2   [bool(false), NULL]
+
+```
