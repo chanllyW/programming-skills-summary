@@ -132,6 +132,7 @@
 ### 生成唯一订单号
 
 ```php
+// 有人反映下面代码，不靠谱，冲撞率极高，这里就仅做学习，不推荐正式环境使用了
 /**
  *
  * uniqid - 官方是这样说的：
@@ -141,7 +142,22 @@ function build_order_no()
 {
     return date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
 }
+
+// 补充：来自ECSHOP订单号生成函数：/includes/lib_order.php文件中的get_order_sn()
+/**
+ * 得到新订单号
+ * @return  string
+ */
+function build_order_no()
+{
+    /* 选择一个随机的方案 */
+    // Note: 自 PHP 4.2.0 起，不再需要用 srand() 或 mt_srand() 给随机数发生器播种 ，因为现在是由系统自动完成的。 
+    mt_srand((double) microtime() * 1000000);
+ 
+    return date('Ymd') . str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+}
 ```
+
 
 ----
 
