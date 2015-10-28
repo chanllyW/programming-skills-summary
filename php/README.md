@@ -764,3 +764,10 @@ $dateIntval = $fromDate->diff($toDate);
 echo $dateIntval->format('相差%r%y年%m月%d天%h小时%i分%s秒');
 
 ```
+
+### 提取字符串 中文，英文，数字
+```php
+$pattern = '/[^\x{4e00}-\x{9fa5}\d\w]+/u';
+$res = preg_replace($pattern, '', $str);
+var_dump($res);
+```
