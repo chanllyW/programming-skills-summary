@@ -28,7 +28,7 @@ switch (true) {
 }
 ```
 
-### PHP正确的使用复数
+### PHP正确的使用复数 [来源](http://www.cnblogs.com/yingnan/p/5194817.html)
 ```php
 <?php
 // 正确地显示复数
