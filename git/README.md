@@ -106,3 +106,11 @@ $git commit --amend
 $ git rebase --continue  
 返回之前最新的commit。
 ```
+
+### 密钥登录
+* 生成密钥
+    > ssh-keygen -t rsa -C "your_email@example.com"
+* 上传服务器
+    > ssh-copy-id -i ~/.ssh/id_rsa.pub root@100.100.100.100
+
+
