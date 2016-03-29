@@ -113,4 +113,10 @@ $ git rebase --continue
 * 上传服务器
     > ssh-copy-id -i ~/.ssh/id_rsa.pub root@100.100.100.100
 
+### git 给远程库 添加多个url地址
 
+* 第一个地址 git remote add origin <url1>
+* 第二个地址 git remote set-url --add origin <url2>
+* 第三个地址 git remote set-url --add origin <url3>
+
+> 注意：使用git push origin master时，你可以push到origin的多个url地址。但是使用 git pull时，只能拉取origin里的一个url地址,这个fetch-url默认为 你添加的到origin的第一个地址
