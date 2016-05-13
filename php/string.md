@@ -173,3 +173,20 @@ if(!function_exists('_plurals_format'))
 echo 'Sybil ate three '._plurals_format('biscuit', 3).', one after the other.',PHP_EOL;
 echo 'The two '._plurals_format('woman', 2).' will meet tomorrow in the final.';
 ```
+
+### 判断字符编码
+```php
+function get_encoding($str = ""){
+        $encodings = array(
+            'ASCII',
+            'UTF-8',
+            'GBK'
+        );
+        foreach ( $encodings as $encoding ) {
+            if ($str === mb_convert_encoding(mb_convert_encoding($str, "UTF-32", $encoding), $encoding, "UTF-32")) {
+                return $encoding;
+            }
+        }
+        return false;
+    }
+```
