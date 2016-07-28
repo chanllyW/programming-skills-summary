@@ -771,3 +771,33 @@ $pattern = '/[^\x{4e00}-\x{9fa5}\d\w]+/u';
 $res = preg_replace($pattern, '', $str);
 var_dump($res);
 ```
+
+### 检测文件编码
+```php
+function detect_encoding($file) {
+    $list = array('GBK', 'UTF-8', 'UTF-16LE', 'UTF-16BE', 'ISO-8859-1');
+    $str = file_get_contents($file);
+    foreach ($list as $item) {
+        $tmp = mb_convert_encoding($str, $item, $item);
+        if (md5($tmp) == md5($str)) {
+            return $item;
+        }
+    }
+    return null;
+}
+```
+
+### 自动解析编码读入文件
+```php
+function auto_read($file, $charset='UTF-8') {
+    $list = array('GBK', 'UTF-8', 'UTF-16LE', 'UTF-16BE', 'ISO-8859-1');
+    $str = file_get_contents($file);
+    foreach ($list as $item) {
+        $tmp = mb_convert_encoding($str, $item, $item);
+        if (md5($tmp) == md5($str)) {
+            return mb_convert_encoding($str, $charset, $item);
+        }
+    }
+    return "";
+}
+```
